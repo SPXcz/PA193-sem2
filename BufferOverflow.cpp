@@ -4,6 +4,9 @@
 #include "string.h"
 #include "stdlib.h"
 #include "memory.h"
+#include <iostream>
+#include <iomanip>
+using namespace std;
 // Note: GCC and MSVC uses different memory alignment
 // Try "12345678DevilEvecosia" as a password for gcc build
 // Try "1234567812345678Devil I am. Ha Ha" as a password for MSVC debug x86 build. 
@@ -33,7 +36,7 @@ void demoBufferOverflowData() {
 	printf("login as: ");
 	fflush(stdout);
 	//gets(userName); // use scanf("%s", userName); if gets fails with identifier not found
-	scanf("%s", userName); 
+	scanf("%s", userName);
 
 	// Get password
 	printf("%s@vulnerable.machine.com: ", userName);
@@ -129,7 +132,7 @@ int main() {
 
 	printf("\n\n#### demoBufferOverflowData ####\n");
 	demoBufferOverflowData();
-    demoBufferOverflowData();
+	demoBufferOverflowData();
 	/**/
 	//
 	// More on buffer overflow - reveal sensitive data.
@@ -159,5 +162,9 @@ int main() {
 	demoDataTypeOverflow(10, &data, 5);			// Correct operation
 	demoDataTypeOverflow(1073742, &data, 5);	// 1073742 * 4000 => only 704 B allocated
 	/**/
+
 	return 0;
 }
+
+
+
